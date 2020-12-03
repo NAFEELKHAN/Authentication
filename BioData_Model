@@ -1,0 +1,50 @@
+public class BioData
+    {
+        public int BioDataId { get; set; }
+
+
+        [Required]
+        public string EId { get; set; }
+
+        [ForeignKey("EId")]
+        public ApplicationUser User { get; set; }
+
+        [Display(Name = "First Name")]
+        [MaxLength(25), MinLength(4)]
+        [Required(ErrorMessage = "Name is Required")]
+        public string Firstname { get; set; }
+
+
+        [Display(Name = "Middle Name")]
+        [MaxLength(25), MinLength(4)]
+        [Required(ErrorMessage = "Middle is Required")]
+        public string Middlename { get; set; }
+
+        [Display(Name = "Last Name")]
+        [MaxLength(25), MinLength(4)]
+        [Required(ErrorMessage = "Last is Required")]
+        public string Lastname { get; set; }
+
+
+        [Display(Name = "Father Name")]
+        [MaxLength(25), MinLength(4)]
+        [Required(ErrorMessage = "Father is Required")]
+        public string Fathername { get; set; }
+
+
+        [Display(Name = "Gender")]
+        //[Required(ErrorMessage = "Gender is Required")]
+        public Gender Gender { get; set; }
+
+
+        [Display(Name = "Age")]
+        [Required(ErrorMessage = "Age is Required")]
+        public int Age { get; set; }
+
+
+        // Server Activity Time
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)] //automated generated date
+        [Display(Name = "Added Date")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:d}")]
+        public DateTime AddedDate { get; set; }
+    }
