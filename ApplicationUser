@@ -1,0 +1,13 @@
+public class ApplicationUser : IdentityUser
+    {
+
+        [Required]
+        [Display(Name ="Name")]
+        [MaxLength(25), MinLength(4)]
+        public string Name { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)] //automated generated date
+        [Display(Name = "Added Date")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:d}")]
+        public DateTime AddedDate { get; set; }
+    }
